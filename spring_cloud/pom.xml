@@ -11,7 +11,6 @@
 		<module>eureka_8000</module>
 		<module>eureka_8001</module>
 		<module>eureka_8002</module>
-		<module>dept_server_9000</module>
 		<module>server_user_9001</module>
 		<module>server_user_9002</module>
 		<module>spring_cloud_parent</module>

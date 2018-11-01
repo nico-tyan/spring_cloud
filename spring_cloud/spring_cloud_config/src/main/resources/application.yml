@@ -1,0 +1,15 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: spring-cloud-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/nico-tyan/spring_cloud_config.git     # 配置git仓库的地址
+          searchPaths: /
+          #searchPaths: '*.yml'
+          username: 710067344@qq.com                                           # git仓库的账号
+          password: z710067344                                 # git仓库的密码
+          
