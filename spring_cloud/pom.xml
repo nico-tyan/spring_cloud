@@ -15,6 +15,8 @@
 		<module>server_user_9002</module>
 		<module>spring_cloud_parent</module>
 		<module>server_dept_9000</module>
+		<module>feign_ribbon_80</module>
+		<module>hystrix-dashboard_998</module>
 	</modules>
 
 	<properties>

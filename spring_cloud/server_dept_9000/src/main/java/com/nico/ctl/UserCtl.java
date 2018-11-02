@@ -1,37 +1,36 @@
 package com.nico.ctl;
 
-import java.util.List;
-
 import javax.annotation.Resource;
-import javax.transaction.Transactional;
 
-import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nico.web.hibernate.dao.UserDao;
-import com.nico.web.hibernate.entity.User;
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.nico.web.mybatis.entity.SysUser;
+import com.nico.web.mybatis.mapper.SysUserMapper;
 
 @RestController
 @Transactional
 public class UserCtl {
 	@Resource
-	private UserDao userDao;
+	private SysUserMapper sysUserMapper;
 	
 	@RequestMapping(value = "/user/add/{name}", method = RequestMethod.GET)
 	public Object add(@PathVariable("name") String name) {
-		User user = new User();
-		user.setLoginName(name);
-		user.setUsername(name);
-		return userDao.save(user);
+		SysUser sysUser = new SysUser();
+		sysUser.setLoginName(name);
+		sysUser.setUserName(name);
+		return sysUserMapper.insert(sysUser);
 	}
 	
 	@RequestMapping(value = "/user/select/{name}", method = RequestMethod.GET)
 	public Object select(@PathVariable("name") String name) {
-		
-		return userDao.findByUsernameContaining(name);
+		EntityWrapper<SysUser> entityWrapper = new EntityWrapper<>();
+		entityWrapper.like("user_name", name);
+		return sysUserMapper.selectList(entityWrapper);
 	}
 	
 }
