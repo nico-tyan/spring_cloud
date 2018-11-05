@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.nico.web.hibernate.dao.DeptDao;
 import com.nico.web.hibernate.entity.Dept;
 
@@ -18,6 +19,7 @@ public class DeptCtl {
 	private DeptDao deptDao;
 	
 	@RequestMapping(value = "/dept/add/{deptName}/{deptNo}", method = RequestMethod.GET)
+	@HystrixCommand
 	public Object add(@PathVariable("deptName") String deptName,@PathVariable("deptNo") String deptNo) {
 		Dept dept=new Dept();
 		dept.setDeptName(deptName);
@@ -27,6 +29,7 @@ public class DeptCtl {
 	}
 	
 	@RequestMapping(value = "/dept/findAll", method = RequestMethod.GET)
+	@HystrixCommand
 	public Object select() {
 		
 		return deptDao.findAll();

@@ -38,7 +38,14 @@ spring:
 logging:
   level:
     com.nico.web.mybatis.mapper: debug
-        
+
+# 使用Hystrix Metrics Stream必备 
+management:
+  endpoints: 
+    web:
+      exposure: 
+        include: hystrix.stream   
+                
 eureka:
   client: #客户端注册进eureka服务列表内
     service-url: 
