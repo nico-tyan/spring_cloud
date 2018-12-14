@@ -14,14 +14,9 @@ eureka:
     prefer-ip-address: true     #访问路径可以显示IP地址
 
 turbine:
-  #指定了要监控的应用名字 
-  appConfig: server-user,server-user1
-  #表示集群的名字为default 
-  clusterNameExpression: "'default'"
-  #aggregator: 
-   #  clusterConfig: default
-  #表示同一主机上的服务通过host和port的组合来进行区分，默认情况下是使用host来区分，这样会使本地调试有问题
-  #combineHostPort: true
+  app-config: SERVER-USER,SERVER-TURBINE #指定了被收集的app名称
+  combine-host-port: true #同一主机多个服务使用hostname+port进行区分，此项默认为false，即同一主机多服务会合并成一个服务展示
+  cluster-name-expression: new String("default") #指定集群名称，书中直接使用“default“，这里已经不能用了，会报错
       
 info: 
   app.name: nico-server-turbine
