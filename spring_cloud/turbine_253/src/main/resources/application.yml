@@ -1,31 +1,30 @@
-server: 
-  port: 998
-
+server:
+  port: 253
+  
 spring:
    application:
-    name: server-hystrix-dashboard-turbine
+    name: server-turbine
       
 eureka:
   client: #客户端注册进eureka服务列表内
     service-url: 
       defaultZone: http://nico.com:8000/eureka/,http://nico25.com:8001/eureka/,http://nico252.com:8002/eureka/
   instance:
-    instance-id: server-hystrix-dashboard-turbine   #自定义服务名称信息
+    instance-id: server-turbine-253   #自定义服务名称信息
     prefer-ip-address: true     #访问路径可以显示IP地址
 
 turbine:
   #指定了要监控的应用名字 
-  appConfig: server-user
-  #SERVER-USER  #,server-user-9001,SERVER-USER-9002
+  appConfig: server-user,server-user1
   #表示集群的名字为default 
-  aggregator:
-    clusterConfig: default
   clusterNameExpression: "'default'"
+  #aggregator: 
+   #  clusterConfig: default
   #表示同一主机上的服务通过host和port的组合来进行区分，默认情况下是使用host来区分，这样会使本地调试有问题
-  combineHostPort: true
+  #combineHostPort: true
       
 info: 
-  app.name: nico-server-hystrix-dashboard-turbine
+  app.name: nico-server-turbine
   company.name: nico.com
   build.artifactId: $project.artifactId$
   build.version: $project.version$

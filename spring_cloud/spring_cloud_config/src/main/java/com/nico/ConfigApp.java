@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @EnableConfigServer
-public class Application {
+public class ConfigApp {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(ConfigApp.class, args);
 
 	}
 

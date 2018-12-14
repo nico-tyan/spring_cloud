@@ -5,7 +5,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-@FeignClient(value = "SERVER-USER", fallbackFactory = DeptClientServiceFallbackFactory.class)
+@FeignClient(value = "SERVER-USER", 
+	fallbackFactory = DeptClientServiceFallbackFactory.class)
 public interface DeptServiceFeign {
 
 	@RequestMapping(value = "/dept/add/{deptName}/{deptNo}", method = RequestMethod.GET)

@@ -19,6 +19,7 @@
 		<module>feign_ribbon_80</module>
 		<module>hystrix-dashboard_998</module>
 		<module>zuul_252</module>
+		<module>turbine_253</module>
 	</modules>
 
 	<properties>

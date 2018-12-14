@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+
 @RestController
 public class TestCtl {
 	
@@ -17,10 +19,11 @@ public class TestCtl {
 	private DiscoveryClient client;
 
 	@RequestMapping(value = "/test/discovery", method = RequestMethod.GET)
+	@HystrixCommand
 	public Object discovery() {
 		List<String> list = client.getServices();
 		System.out.println("**********" + list);
-		List<ServiceInstance> srvList = client.getInstances("MICROSERVICECLOUD-DEPT");
+		List<ServiceInstance> srvList = client.getInstances("SERVER-DEPT");
 		for (ServiceInstance element : srvList) {
 			System.out.println(element.getServiceId() + "\t" + element.getHost() + "\t" + element.getPort() + "\t"
 					+ element.getUri());

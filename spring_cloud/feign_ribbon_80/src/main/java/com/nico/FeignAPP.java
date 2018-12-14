@@ -13,9 +13,9 @@ import com.netflix.loadbalancer.RoundRobinRule;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableFeignClients
-public class APP {
+public class FeignAPP {
 	public static void main(String[] args) {
-		SpringApplication.run(APP.class , args);
+		SpringApplication.run(FeignAPP.class , args);
 	}
 	
 	@Bean
