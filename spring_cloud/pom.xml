@@ -20,6 +20,7 @@
 		<module>hystrix-dashboard_998</module>
 		<module>zuul_252</module>
 		<module>turbine_253</module>
+		<module>oauth2_2525</module>
 	</modules>
 
 	<properties>
@@ -36,7 +37,7 @@
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>Dalston.SR1</version>
+				<version>Edgware.RELEASE</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>

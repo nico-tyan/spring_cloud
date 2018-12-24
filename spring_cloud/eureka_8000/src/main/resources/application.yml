@@ -4,9 +4,16 @@ server:
 eureka: 
   instance:
     hostname: nico.com #eureka服务端的实例名称
+    leaseRenewalIntervalInSeconds: 5   #5秒 -如果心跳停止的时间超过了服务器设置的等待时间，那么服务器端将会从它的服务列表中删除该实例，从而将流量排除在该实例之外。默认30s
+    leaseExpirationDurationInSeconds: 10  #10秒
   client: 
     register-with-eureka: false     #false表示不向注册中心注册自己。
     fetch-registry: false     #false表示自己端就是注册中心，我的职责就是维护服务实例，并不需要去检索服务
     service-url: 
-      #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/       #设置与Eureka Server交互的地址查询服务和注册服务都需要依赖这个地址。
-      defaultZone: http://nico25.com:8001/eureka/,http://nico252.com:8002/eureka/
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/       #设置与Eureka Server交互的地址查询服务和注册服务都需要依赖这个地址。
+      #defaultZone: http://nico25.com:8001/eureka/,http://nico252.com:8002/eureka/
+  #server:
+    # 关闭自我保护机制
+    #enable-self-preservation: false
+    # 每隔10s扫描服务列表，移除失效服务
+    #eviction-interval-timer-in-ms: 10000
