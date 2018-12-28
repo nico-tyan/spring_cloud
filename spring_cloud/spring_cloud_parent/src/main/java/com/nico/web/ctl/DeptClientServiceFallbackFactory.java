@@ -25,6 +25,7 @@ public class DeptClientServiceFallbackFactory implements FallbackFactory<DeptSer
 				
 				return fallback();
 			}
+			
 		};
 	}
 
