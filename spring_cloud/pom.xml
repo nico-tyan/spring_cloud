@@ -21,6 +21,7 @@
 		<module>zuul_252</module>
 		<module>turbine_253</module>
 		<module>oauth2_2525</module>
+		<module>common_dao</module>
 	</modules>
 
 	<properties>

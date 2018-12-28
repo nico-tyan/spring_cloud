@@ -11,4 +11,5 @@ public class EurekaWar extends SpringBootServletInitializer {
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
         return builder.sources(EurekaWar.class);
     }
+    
 }
