@@ -1,0 +1,30 @@
+server:
+  port: 9025
+  
+spring:
+   application:
+    name: server-admin
+      
+eureka:
+  client: #客户端注册进eureka服务列表内
+    service-url:      
+      defaultZone: http://nico.com:8000/eureka/#,http://nico25.com:8001/eureka/,http://nico252.com:8002/eureka/
+  instance:
+    instance-id: server-admin-9025   #自定义服务名称信息
+    prefer-ip-address: true     #访问路径可以显示IP地址
+
+management: 
+  endpoint: 
+    health: 
+      show-details: ALWAYS
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+info: 
+  app.name: nico-server-admin
+  company.name: nico.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+  
