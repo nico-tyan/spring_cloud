@@ -10,6 +10,6 @@ spring:
           force-pull: true
           uri: https://github.com/nico-tyan/cloud_config/     # 配置git仓库的地址
           #searchPaths: '*.yml'
-          username: 710067344@qq.com      # git仓库的账号
-          password: z710067344            # git仓库的密码
+          username:       # git仓库的账号
+          password:             # git仓库的密码
           
